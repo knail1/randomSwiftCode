@@ -10,3 +10,6 @@ https://itunes.apple.com/us/course/developing-ios-11-apps-with-swift/id130927531
 progress and notes are in the form of independent commits as well as hand notes i'm taking in a book, which i'll some day upload as pdf.
 
 
+## Taxonomy
+
+- tips and tricks/best practices are notated in  the comments as TIP: 
