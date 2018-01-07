@@ -11,13 +11,18 @@ import UIKit
 class ViewController: UIViewController {
 
 
+
+
     
     @IBAction func touchCard(_ sender: UIButton) {
+        
+        print("argh mate!")
+        
     }
     
-    func flipCard(withEmoji emoji: String, on Button: UIButton) -> <#return type#> {
-        <#function body#>
+//    func flipCard(withEmoji emoji: String, on Button: UIButton) -> <#return type#> {
+    //    <#function body#>
     }
-    
-}
+
+
 
