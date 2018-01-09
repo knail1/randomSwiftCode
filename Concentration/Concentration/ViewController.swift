@@ -34,7 +34,13 @@ class ViewController: UIViewController
     
     // ! explanation coming later..
    
-   
+    var emojiChoices0: Array<String> = ["🤡", "😆", "🤡", "🤠"]
+    
+    // or let it do inference
+    
+    var emojiChoices = ["🤡", "😆", "🤡", "🤠"]
+    
+    // this array represents the the card numbers in sequence as they appear in the app
     
     // now we'll write a functin which does flips the card over and presents the emoji
     // when the card (button) is clicked
@@ -58,7 +64,9 @@ class ViewController: UIViewController
         // in this case, the .index when its set it is Int...
         
         if let cardNumber = cardButtons.index(of: sender) {
-            print("cardNumber :\(cardNumber)")
+            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            // the above passes the INDEX of the card , and the sender card reference thats calling the app. based on the emojiChoices variable which is set up exactly to mimic the card numbers in the phone display.
+            
             
         } else {
             print("chosen card was not in cardButtons array trying to not crash the prog")
