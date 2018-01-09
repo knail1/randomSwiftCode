@@ -8,17 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
-
+    // swift requires all variables (aka properties) to be initalized with an initial value
     
+    var flipCount0: Int = 0
     
+    // swift is extremely strongly typed language, you have to be VERY specific in what you want to use
+    // also has strong type inference (it will guess type for you) so you could have used:
+    
+    var flipCount = 0 
+    
+    @IBOutlet weak var flipCountLabel: UILabel!
+    
+    // ! explanation coming later..
    
    
     @IBAction func touchSecondCard(_ sender: UIButton) {
         
         flipCard(withEmoji: "😆", on: sender)
-
+        flipCount += 1
+        flipCountLabel.text = "Flips : \(flipCount)"
     }
     
     
@@ -34,8 +45,11 @@ class ViewController: UIViewController {
         
         // let's pring variable passed to function called sender of type UIButton
         //print("touchCard(\(sender))")
+        
         flipCard(withEmoji: "🤡", on: sender)
-
+        flipCount += 1
+        flipCountLabel.text = "Flips : \(flipCount)"
+        
     }
     
     func flipCard(withEmoji emoji: String, on button: UIButton) {
