@@ -26,18 +26,15 @@ class ViewController: UIViewController
         }
     }
     
+    // we will use arrays to look up which emoji is coming from the click.
+    
+    @IBOutlet var cardButtons: [UIButton]!
+    
     @IBOutlet weak var flipCountLabel: UILabel!
     
     // ! explanation coming later..
    
    
-    @IBAction func touchSecondCard(_ sender: UIButton) {
-        
-        flipCard(withEmoji: "😆", on: sender)
-        flipCount += 1
-        
-    }
-    
     
     // now we'll write a functin which does flips the card over and presents the emoji
     // when the card (button) is clicked
@@ -52,8 +49,20 @@ class ViewController: UIViewController
         // let's pring variable passed to function called sender of type UIButton
         //print("touchCard(\(sender))")
         
-        flipCard(withEmoji: "🤡", on: sender)
+        // receive the index of the card which is calling this method.
+        // this index is automatically part of the array that we created cardButtons
+        // that we connected each of the cards to.
+        
+        // .index returns an optional which has two value set or not set
+        // in a set state it can have Data associated with it
+        // in this case, the .index when its set it is Int...
+        
+        let cardNumber = cardButtons.index(of: sender)!
+        // the ! exclamation says, assume its set and take its value.
+        // if the card is not connected to the cardButtons array,  and the card is clicked, this code segment would try to unwrap the the index of this card from cardNumber and find NIL instead, this will crash the program
+        
         flipCount += 1
+        print("cardNumber :\(cardNumber)")
         
     }
     
