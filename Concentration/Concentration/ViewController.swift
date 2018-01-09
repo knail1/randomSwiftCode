@@ -57,12 +57,17 @@ class ViewController: UIViewController
         // in a set state it can have Data associated with it
         // in this case, the .index when its set it is Int...
         
-        let cardNumber = cardButtons.index(of: sender)!
+        if let cardNumber = cardButtons.index(of: sender) {
+            print("cardNumber :\(cardNumber)")
+            
+        } else {
+            print("chosen card was not in cardButtons array trying to not crash the prog")
+            
+        }
         // the ! exclamation says, assume its set and take its value.
         // if the card is not connected to the cardButtons array,  and the card is clicked, this code segment would try to unwrap the the index of this card from cardNumber and find NIL instead, this will crash the program
         
         flipCount += 1
-        print("cardNumber :\(cardNumber)")
         
     }
     

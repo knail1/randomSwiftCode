@@ -128,7 +128,6 @@
                         <outletCollection property="cardButtons" destination="PwD-dg-9J5" collectionClass="NSMutableArray" id="NvV-qZ-8pw"/>
                         <outletCollection property="cardButtons" destination="cMz-M3-XUI" collectionClass="NSMutableArray" id="OVw-zU-PdV"/>
                         <outletCollection property="cardButtons" destination="MlA-Ia-Dgf" collectionClass="NSMutableArray" id="20I-Gm-9Cx"/>
-                        <outletCollection property="cardButtons" destination="X3V-zi-sVZ" collectionClass="NSMutableArray" id="Cwr-xc-8ag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
