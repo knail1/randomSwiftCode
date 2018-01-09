@@ -18,7 +18,13 @@ class ViewController: UIViewController
     // swift is extremely strongly typed language, you have to be VERY specific in what you want to use
     // also has strong type inference (it will guess type for you) so you could have used:
     
-    var flipCount = 0 
+    var flipCount = 0 {
+        didSet {
+            // this code observes this variable changing and everytime it changes, this {}
+            // segment executes the code... so let's move the flipCoundLabel here..
+            flipCountLabel.text = "Flips : \(flipCount)"
+        }
+    }
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
@@ -29,7 +35,7 @@ class ViewController: UIViewController
         
         flipCard(withEmoji: "😆", on: sender)
         flipCount += 1
-        flipCountLabel.text = "Flips : \(flipCount)"
+        
     }
     
     
@@ -48,7 +54,6 @@ class ViewController: UIViewController
         
         flipCard(withEmoji: "🤡", on: sender)
         flipCount += 1
-        flipCountLabel.text = "Flips : \(flipCount)"
         
     }
     
