@@ -13,3 +13,19 @@ progress and notes are in the form of independent commits as well as hand notes 
 ## Taxonomy
 
 - tips and tricks/best practices are notated in  the comments as TIP: 
+
+
+## reading up until 1/8:
+
+- The Language guide: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309
+	- the basics
+	- basic operators 
+	- strings and characters
+	- collection types
+	- control flow
+	- functions
+	- classes and structures
+	- properties
+	- methods
+	- inheritence
+	- initilization

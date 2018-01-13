@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController
 {
+    lazy var game: Concentration = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    
+    // lazy is something only initialized when game is used somewhere..
+    
 
     // swift requires all variables (aka properties) to be initalized with an initial value
     
@@ -34,12 +38,6 @@ class ViewController: UIViewController
     
     // ! explanation coming later..
    
-    var emojiChoices0: Array<String> = ["🤡", "😆", "🤡", "🤠"]
-    
-    // or let it do inference
-    
-    var emojiChoices = ["🤡", "😆", "🤡", "🤠"]
-    
     // this array represents the the card numbers in sequence as they appear in the app
     
     // now we'll write a functin which does flips the card over and presents the emoji
@@ -63,22 +61,63 @@ class ViewController: UIViewController
         // in a set state it can have Data associated with it
         // in this case, the .index when its set it is Int...
         
+        flipCount += 1
+        
         if let cardNumber = cardButtons.index(of: sender) {
-            flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            //flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
+            game.chooseCard(at: cardNumber)
+            updateViewFromModel()
+            
             // the above passes the INDEX of the card , and the sender card reference thats calling the app. based on the emojiChoices variable which is set up exactly to mimic the card numbers in the phone display.
-            
-            
         } else {
             print("chosen card was not in cardButtons array trying to not crash the prog")
-            
         }
         // the ! exclamation says, assume its set and take its value.
         // if the card is not connected to the cardButtons array,  and the card is clicked, this code segment would try to unwrap the the index of this card from cardNumber and find NIL instead, this will crash the program
-        
-        flipCount += 1
-        
     }
     
+    func updateViewFromModel() {
+        for index in cardButtons.indices {
+            let button = cardButtons[index]
+            let card = game.cards[index]
+            if card.isFaceUp {
+                button.setTitle(emoji(for: card), for: UIControlState.normal)
+                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            } else {
+                button.setTitle("", for: UIControlState.normal)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1) : #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            }
+        }
+    }
+    
+    var emojiChoices0: Array<String> = ["🤡", "😆", "🤡", "🤠"]
+    
+    // or let it do inference
+    
+    var emojiChoices = ["🤡", "😆", "🤡", "🤠", "🔫","🤓","🤣","🤜"]
+    
+    var emoji0 = Dictionary<Int, String>()
+     // or
+    var emoji = [Int: String]()
+    
+    
+    
+    func emoji(for card: Card) -> String {
+        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+            
+            // to guard against trying to call emoji dictionary still having something in there emojiChoices.count > 0
+            // was used..
+            
+            //return emoji[card.identifier]!
+        }
+        // can also use for if x exists then {x} else {y} : return {x} ?? {y}
+        return emoji[card.identifier] ?? "?"
+    }
+    
+        
+        
     func flipCard(withEmoji emoji: String, on button: UIButton) {
         print("flipCard(withEmoji: \(emoji))")
         
@@ -100,3 +139,4 @@ class ViewController: UIViewController
     }
     
 }
+
