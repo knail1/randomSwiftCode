@@ -11,70 +11,31 @@ import UIKit
 class ViewController: UIViewController
 {
     lazy var game: Concentration = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
-    
     // lazy is something only initialized when game is used somewhere..
-    
-
-    // swift requires all variables (aka properties) to be initalized with an initial value
-    
-    var flipCount0: Int = 0
-    
-    // swift is extremely strongly typed language, you have to be VERY specific in what you want to use
-    // also has strong type inference (it will guess type for you) so you could have used:
-    
-    var flipCount = 0 {
+     var flipCount = 0 {
         didSet {
-            // this code observes this variable changing and everytime it changes, this {}
-            // segment executes the code... so let's move the flipCoundLabel here..
-            flipCountLabel.text = "Flips : \(flipCount)"
+             flipCountLabel.text = "Flipoos : \(flipCount)"
         }
     }
-    
-    // we will use arrays to look up which emoji is coming from the click.
     
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
-    // ! explanation coming later..
-   
-    // this array represents the the card numbers in sequence as they appear in the app
-    
-    // now we'll write a functin which does flips the card over and presents the emoji
-    // when the card (button) is clicked
-    // it will take the emoji you want to show presented up on this card when flipped
-    // and the button on which you want that emoji to be flipped (heck thats all the work!)
     @IBAction func touchCard(_ sender: UIButton) {
-        
-        // TIP: to fix an object calling multiple IBActions, you can right click on the
-        // object and see what "TouchUPInide" is calling and update it just to call the
-        // required IBAction function.
-        
-        // let's pring variable passed to function called sender of type UIButton
-        //print("touchCard(\(sender))")
-        
-        // receive the index of the card which is calling this method.
-        // this index is automatically part of the array that we created cardButtons
-        // that we connected each of the cards to.
-        
-        // .index returns an optional which has two value set or not set
-        // in a set state it can have Data associated with it
-        // in this case, the .index when its set it is Int...
         
         flipCount += 1
         
         if let cardNumber = cardButtons.index(of: sender) {
-            //flipCard(withEmoji: emojiChoices[cardNumber], on: sender)
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
             
             // the above passes the INDEX of the card , and the sender card reference thats calling the app. based on the emojiChoices variable which is set up exactly to mimic the card numbers in the phone display.
         } else {
             print("chosen card was not in cardButtons array trying to not crash the prog")
+            // to avoid unwrapping nil, and crashing the app.
         }
-        // the ! exclamation says, assume its set and take its value.
-        // if the card is not connected to the cardButtons array,  and the card is clicked, this code segment would try to unwrap the the index of this card from cardNumber and find NIL instead, this will crash the program
-    }
+     }
     
     func updateViewFromModel() {
         for index in cardButtons.indices {
@@ -89,10 +50,6 @@ class ViewController: UIViewController
             }
         }
     }
-    
-    var emojiChoices0: Array<String> = ["🤡", "😆", "🤡", "🤠"]
-    
-    // or let it do inference
     
     var emojiChoices = ["🤡", "😆", "🤡", "🤠", "🔫","🤓","🤣","🤜"]
     

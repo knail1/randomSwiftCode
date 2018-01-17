@@ -32,14 +32,16 @@ class Concentration
     
     // let's still make an initiatizer WITH args:
     
+    // MARK: Initialize number of pairs of cards
+    
     init(numberOfPairsOfCards: Int) {
-       // let card = Card(isFaceUp: false, isMatched: false, identifier: 007)
+        // let card = Card(isFaceUp: false, isMatched: false, identifier: 007)
         // however the above is gross, these are the same values the Card struct has specified
         
         for _ in 0..<numberOfPairsOfCards {
             
             // let card = Card(identifier: identifier)
-                let card = Card() // I want to automatically create a unique ID..
+            let card = Card() // I want to automatically create a unique ID..
             
             // let matchingCard = Card(identifier: identifier)
             // or I could do this:
