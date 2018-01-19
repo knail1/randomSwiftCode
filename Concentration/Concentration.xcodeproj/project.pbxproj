@@ -26,8 +26,6 @@
 		2927BDD820011FF700B2E5F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2939078220083B62000724DA /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		2939078420083C21000724DA /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		297E344E200EE5AE001C3CEC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		297E3450200EE5E6001C3CEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +82,6 @@
 		297E344D200EE5AE001C3CEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				297E3450200EE5E6001C3CEC /* MapKit.framework */,
-				297E344E200EE5AE001C3CEC /* Accelerate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

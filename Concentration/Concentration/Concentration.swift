@@ -20,12 +20,29 @@ class Concentration
     // also what works is:
     var cards = [Card]()
     
+    var indexOfOneAndOnlyFaceUpCard: Int?
+    
     func chooseCard(at index: Int){
-        if cards[index].isFaceUp {
-            cards[index].isFaceUp = false
-        } else {
-            cards[index].isFaceUp = true
+        if !cards[index].isMatched {
+            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
+                // check if cards match since we now have 2 cards up
+                if cards[matchIndex].identifier == cards[index].identifier {
+                    cards[matchIndex].isMatched = true
+                    cards[index].isMatched = true
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyFaceUpCard = nil
+            } else {
+                // either no cards are face up, or both cards are face up
+                for flipDownIndex in cards.indices {
+                    cards[flipDownIndex].isFaceUp = false
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyFaceUpCard = index
+            }
+            
         }
+        
     }
     
     // classes get a FREE init with no args as long as the the variables are defined.
@@ -38,7 +55,7 @@ class Concentration
         // let card = Card(isFaceUp: false, isMatched: false, identifier: 007)
         // however the above is gross, these are the same values the Card struct has specified
         
-        for _ in 0..<numberOfPairsOfCards {
+        for _ in 1...numberOfPairsOfCards {
             
             // let card = Card(identifier: identifier)
             let card = Card() // I want to automatically create a unique ID..
