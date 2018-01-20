@@ -25,15 +25,6 @@
                                 <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMz-M3-XUI">
-                                <rect key="frame" x="104" y="44" width="80" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <connections>
-                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ryr-JY-XCH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwD-dg-9J5">
                                 <rect key="frame" x="16" y="44" width="80" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -140,7 +131,6 @@
                     <connections>
                         <outlet property="flipCountLabel" destination="qYM-nm-71r" id="hNf-5p-x0V"/>
                         <outletCollection property="cardButtons" destination="PwD-dg-9J5" collectionClass="NSMutableArray" id="NvV-qZ-8pw"/>
-                        <outletCollection property="cardButtons" destination="cMz-M3-XUI" collectionClass="NSMutableArray" id="OVw-zU-PdV"/>
                         <outletCollection property="cardButtons" destination="MlA-Ia-Dgf" collectionClass="NSMutableArray" id="20I-Gm-9Cx"/>
                         <outletCollection property="cardButtons" destination="X3V-zi-sVZ" collectionClass="NSMutableArray" id="vAs-GH-XJr"/>
                         <outletCollection property="cardButtons" destination="cyO-yg-0Zo" collectionClass="NSMutableArray" id="3Pr-A0-AnN"/>
